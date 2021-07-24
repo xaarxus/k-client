@@ -16,7 +16,7 @@ const Form = ({ setBikes }) => {
       console.log(name, type, color, size, price, id, description);
       const res = await axios({
         method: 'post',
-        url: 'http://localhost:4000/bike/addBike',
+        url: 'https://keenethicsserver.herokuapp.com//bike/addBike',
         data: { name, type, color, size, price, id, description }
       });
       const { bike, message } = res.data;
@@ -27,7 +27,7 @@ const Form = ({ setBikes }) => {
       if (bike) {
         await axios({
           method: 'get',
-          url: 'http://localhost:4000/bike/bikes'
+          url: 'https://keenethicsserver.herokuapp.com//bike/bikes'
         }).then(res => setBikes(res.data));
         handleClear();
       }
