@@ -16,24 +16,24 @@ const BikeItem = ({ bike: {
   const deleteItem = (id) => async () => {
     await axios({
       method: 'delete',
-      url: 'https://keenethicsserver.herokuapp.com//bike/deleteBike',
+      url: 'https://keenethicsserver.herokuapp.com/bike/deleteBike',
       data: { id }
     });
     await axios({
       method: 'get',
-      url: 'https://keenethicsserver.herokuapp.com//bike/bikes'
+      url: 'https://keenethicsserver.herokuapp.com/bike/bikes'
     }).then(res => setBikes(res.data));
   };
 
   const changeStatus = (id) => async (e) => {
     await axios({
       method: 'patch',
-      url: 'https://keenethicsserver.herokuapp.com//bike/updateBike',
+      url: 'https://keenethicsserver.herokuapp.com/bike/updateBike',
       data: { id, status: e.target.value }
     });
     await axios({
       method: 'get',
-      url: 'https://keenethicsserver.herokuapp.com//bike/bikes'
+      url: 'https://keenethicsserver.herokuapp.com/bike/bikes'
     }).then(res => setBikes(res.data));
   };
 
@@ -76,7 +76,7 @@ const Content = () => {
   useEffect(() => {
     axios({
       method: 'get',
-      url: 'https://keenethicsserver.herokuapp.com//bike/bikes'
+      url: 'https://keenethicsserver.herokuapp.com/bike/bikes'
     }).then(res => setBikes(res.data));
   }, []);
 
