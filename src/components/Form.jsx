@@ -1,18 +1,36 @@
 import { useState } from 'react';
+import axios from 'axios';
 
-const Form = () => {
+const Form = ({ setBikes }) => {
   const [name, setName] = useState('');
   const [type, setType] = useState('');
   const [color, setColor] = useState('');
   const [size, setSize] = useState('');
   const [price, setPrice] = useState('');
   const [id, setId] = useState('');
-  const [descroption, setDescroption] = useState('');
+  const [description, setDescription] = useState('');
+  const [mes, setMes] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log(name, type, color, size, price, id, descroption);
-      handleClear();
+      console.log(name, type, color, size, price, id, description);
+      const res = await axios({
+        method: 'post',
+        url: 'http://localhost:4000/bike/addBike',
+        data: { name, type, color, size, price, id, description }
+      });
+      const { bike, message } = res.data;
+      if (message) {
+        setMes(message);
+        setTimeout(() => setMes(''), 4000);
+      }
+      if (bike) {
+        await axios({
+          method: 'get',
+          url: 'http://localhost:4000/bike/bikes'
+        }).then(res => setBikes(res.data));
+        handleClear();
+      }
   };
 
   const handleClear = () => {
@@ -22,7 +40,7 @@ const Form = () => {
     setSize('');
     setPrice('');
     setId('');
-    setDescroption('');
+    setDescription('');
 };
 
   return (
@@ -36,9 +54,10 @@ const Form = () => {
       <input value={price} onChange={(e) => setPrice(e.target.value)} placeholder='Price' required='required' pattern='[0-9]+' title='only a number' />
       <input value={id} onChange={(e) => setId(e.target.value)} placeholder='ID (slug): XXXXXXXXXXXXX' required='required' pattern='([a-z]|[A-Z]|[0-9]){13,20}' title='13 to 20 characters' />
       <br />
-      <textarea value={descroption} onChange={(e) => setDescroption(e.target.value)} placeholder='Description' />
+      <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder='Description' />
       <button className='button-form' type='submit'>SAVE</button>
       <button onClick={handleClear} className='button-form'>CLEAR</button>
+      <p>{mes}</p>
     </form>
   );
 };

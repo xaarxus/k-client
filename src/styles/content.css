@@ -4,10 +4,88 @@
 }
 
 .items {
+  width: 100%;
+  margin-bottom: 42px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  align-content: center;
+  flex-direction: column;
   min-height: 90vh;
   border-right: 1px solid #C4C4C4;
+}
+
+.bike-item > * {
+  margin: 0;
+  padding: 0;
+}
+
+.bike-item {
+  margin: 12px 9px 0 12px;
+  padding: 12px 12px 3px 18px;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.s-24 {
+  font-size: 24px;
+}
+
+.text-id {
+  color: #717171;
+  font-size: 8px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Available {
+  border: 2px solid #6FCF97;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.Busy {
+  border: 2px solid #F2994A;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.Unavailable {
+  border: 2px solid #f5abab;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.Unavailable > * {
+  opacity: 0.5;
+}
+
+.status {
+  opacity: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status :nth-child(1) {
+  opacity: 1;
+}
+
+.opacity-half {
+  opacity: 0.5;
+}
+
+.select-status {
+  margin-left: 18px;
+  border: none;
+}
+
+.close:hover {
+  cursor: pointer;
 }
 
 .form {
@@ -24,7 +102,7 @@ input {
 }
 
 textarea {
-  width: 39.4vw;
+  width: 95%;
   height: 75px;
   margin: 0 10px 10px 0;
   background: #E8E8E8;
