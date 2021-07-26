@@ -57,7 +57,7 @@ const Form = ({ setBikes }) => {
       <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder='Description' />
       <button className='button-form' type='submit'>SAVE</button>
       <button onClick={handleClear} className='button-form'>CLEAR</button>
-      <p>{mes}</p>
+      <p className='message-from-api'>{mes}</p>
     </form>
   );
 };

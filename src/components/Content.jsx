@@ -94,7 +94,7 @@ const Content = () => {
           <p>Total Bikes: <span>{(availables + busy)}</span></p>
           <p>Available Bikes: <span>{availables}</span></p>
           <p>Booked Bikes: <span>{busy}</span></p>
-          <p>Avarage Bike Cost: <span>{price}</span> UAH/hr.</p>
+          <p>Avarage Bike Cost: <span>{price ? price : 0}</span> UAH/hr.</p>
         </div>
       </div>
     </div>
