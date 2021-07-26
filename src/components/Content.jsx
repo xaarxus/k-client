@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../styles/content.css';
+import '../styles/bikes.css';
 import Form from './Form';
 import axios from 'axios';
 
