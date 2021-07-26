@@ -1,7 +1,7 @@
 # CLIENT
 
 ### https://k-client.vercel.app/
-### Задеплоил на Vercel.
+### Деплой на Vercel.
 
 ##### Делал с помощью "React-Create-App"
 
