@@ -13,7 +13,6 @@ const Form = ({ setBikes }) => {
 
   const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log(name, type, color, size, price, id, description);
       const res = await axios({
         method: 'post',
         url: 'https://keenethicsserver.herokuapp.com/bike/addBike',
